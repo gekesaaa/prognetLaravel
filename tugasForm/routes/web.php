@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\userShow;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +22,11 @@ Route::get('/formData', function () {
     return view('formData');
 });
 
-
-
-
-Route::post('/showdata', [userShow::class, 'show']); /* digunakan untuk mengganti  */
+Route::post('/store', [UserController::class, 'store']);
+Route::get('/index', [UserController::class, 'index']);
+Route::get('/show/{user:nim}', [UserController::class, 'show']);
+Route::get('/edit/{user:nim}', [UserController::class, 'edit']);
+Route::post('/update/{user:nim}', [UserController::class, 'update']);
+Route::post('/delete/{user:nim}', [UserController::class, 'destroy']);
+ 
+/* digunakan untuk mengganti  */
